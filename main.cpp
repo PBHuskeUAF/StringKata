@@ -14,7 +14,7 @@ int add_string(string numbers){
 
 TEST_CASE("add_string function"){
 	REQUIRE( add_string("") == 0);
-
+	REQUIRE( add_string("1") == 1);
 
 
 }
