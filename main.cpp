@@ -3,22 +3,28 @@
 // Paul Huskee
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
+#include <iostream>
 #include <string>
 #include <sstream>
 
 using std::string;
 using std::cout;
+using std::endl;
 using std::istringstream;
+using std::getline;
 
 int add_string(string numbers){
 	
-	istringstream iss; 
-	iss.str(numbers);
-	
+	istringstream iss(numbers); 
+
+	string token;
 	int sum = 0;
-	
-	iss >> sum;
-	
+	int temp; 
+
+	while(std::getline(iss, token, ',')) {
+		sum += stoi(token);
+	}
+
 	return sum;
 }
 
@@ -33,8 +39,9 @@ TEST_CASE("add_string function -- single integer"){
 
 }
 
-TEST_CASE("add_string function -- double integer"){
+TEST_CASE("add_string function -- N integers"){
 
 	REQUIRE( add_string("1,2") == 3);
+	REQUIRE( add_string("1,2,6,4,8,4,2") == 27);
 
 }
