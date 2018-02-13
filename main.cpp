@@ -22,7 +22,7 @@ int add_string(string numbers){
 	return sum;
 }
 
-TEST_CASE("add_string function"){
+TEST_CASE("add_string function -- single integer"){
 
 	REQUIRE( add_string("") == 0);
 	REQUIRE( add_string("1") == 1);
@@ -30,5 +30,11 @@ TEST_CASE("add_string function"){
 	REQUIRE( add_string("10") == 10);
 	REQUIRE( add_string("1013") == 1013);
 	REQUIRE( add_string("2013") == 2013);
+
+}
+
+TEST_CASE("add_string function -- double integer"){
+
+	REQUIRE( add_string("1,2") == 3);
 
 }
